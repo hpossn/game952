@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+}
+
+.player {
+    width: 200px;
+}
+
+.kitty {
+    width: 200px;
+}
+
+.score {
+    width: 200px;
+}
+
+.commands {
+    width: 250px;
+}
+
+.commands ul li {
+    list-style-type: none;
+}
+
+.position {
+    color: red;
+    font-weight: bold;
+}
+
+.regular_card {
+    background-color: white;
+    color: black;
+}
+
+.board {
+    width: 600px;
+}
+
+.current_player {
+    background-color: burlywood;
+}
+
+.regular_card:hover {
+    cursor: pointer;
+    background-color: cornflowerblue;
+}

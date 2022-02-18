@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="board_page.css">
+    <script type="text/javascript" src="game_manager.js"></script>
+    <script type="text/javascript" src="screen_manager.js"></script>
+    <script type="text/javascript" src="model.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-3 kitty">
+                <div class="row justify-content-center kitty_all">
+                    <div class="col kitty_card" id="kitty_1"></div>
+                    <div class="col kitty_card" id="kitty_2"></div>
+                    <div class="w-100"></div>
+                    <div class="col kitty_card" id="kitty_3"></div>
+                    <div class="col kitty_card" id="kitty_4"></div>
+                </div>
+                <div class="row justify-content-center invisible" id="trump_row">
+                    <div class="col trump_suite" id="trump_suite_h"><span class="trump red">&#9829</span></div>
+                    <div class="col trump_suite" id="trump_suite_s"><span class="trump black">&#9824</span></div>
+                    <div class="w-100"></div>
+                    <div class="col trump_suite" id="trump_suite_c"><span class="trump black">&#9827</span></div>
+                    <div class="col trump_suite" id="trump_suite_d"><span class="trump red">&#9830</span></div>
+                </div>
+            </div>
+            <div class="col-6 bl-dark">
+                <div class="row">
+                    <div class="col board">
+                        <div id="play_card_1" class="game_card"></div>
+                        <div id="play_card_2" class="game_card"></div>
+                        <div id="play_card_3" class="game_card"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col player_cards">
+                        <div id="player_deck"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 context_menu bl-dark">
+                <div class="row">
+                    <div class="col ">
+                        <hr />
+                        <h3>Messages</h3>
+                        <p class="message_center" id="message_content"></p>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col ">
+                        <button onclick="startGame()">Start game</button>
+                        <button onclick="endGame()">End game</button>
+                        <button id="btnDoneChoosingKitty" onclick="doneChoosingKitty()" disabled>Done choosing
+                            kitty</button>
+                        <hr />
+                        <button id="btnPassToPlayer"disabled>Pass to player</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col " id="players_scores">
+                        <hr />
+                        <h3>Scores</h3>
+                        <div class="row">
+                            <div class="col-4">
+                                <h3>P1</h3>
+                            </div>
+                            <div class="col-4">
+                                <h3>P2</h3>
+                            </div>
+                            <div class="col-4">
+                                <h3>P3</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

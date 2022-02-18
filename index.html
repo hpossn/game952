@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    </link>
+    <script type="text/javascript" src="card_game.js"></script>
+    <script type="text/javascript" src="window_manager.js"></script>
+    <script type="text/javascript" src="game_server.js"></script>
+</head>
+
+<body>
+    <h1>Welcome to 9-5-2</h1>
+
+    <button name="start" onclick="startGame()">start</button>
+
+    <hr />
+
+    <div class="container" id="container">
+        <div class="player">
+            Player 1 <span id="p1_position" class="position"></span>
+            <div class="cards">
+                <ul id="p1_cards">
+                </ul>
+            </div>
+        </div>
+
+        <div class="player">
+            Player 2 <span id="p2_position" class="position"></span>
+            <ul id="p2_cards">
+            </ul>
+        </div>
+
+        <div class="player" id="p3_player">
+            Player 3 <span id="p3_position" class="position"></span>
+            <ul id="p3_cards">
+            </ul>
+        </div>
+
+        <div class="kitty" id="kitty">
+            Kitty
+            <ul id="kitty_cards">
+            </ul>
+        </div>
+
+        <div class="score">
+            score
+            <ul id="score_list">
+                <li>P1</li>
+                <li>P2</li>
+                <li>P3</li>
+            </ul>
+            Hand winner: <span id="hand_winner"></span><br/>
+            Trump: <span id="trump"></span>
+        </div>
+
+        <div class="commands">
+            commands
+            <ul class="commands_list">
+                <li><button id="btn_finish_choosing_kitty" disabled="true" onclick="finishChoosingFromKitty()">Finish choosing from kitty</button></li>
+            </ul>
+        </div>
+
+        <div class="board">
+            board
+            <ul id="board_cards">
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+html, body {
+    height: 100%;
+}
+
+.board {
+    height: 500px;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
+.player_cards {
+    height: 300px;
+    margin-top: 150px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.game_card {
+    width: 150px;
+    float: left;
+    margin-right: 100px;
+}
+
+#play_card_2 {
+    margin-top: 50px;
+}
+
+#play_card_3 {
+    margin-top: 200px;
+}
+
+.kitty {
+    padding: 50px 0px 0px 50px;
+}
+
+.kitty_all {
+    height: 600px;
+}
+
+.container-fluid {
+    background-image: url("sprite/player_table.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.kitty_card {
+    margin-bottom: 50px;
+}
+
+.card {
+    background-image: url("sprite/cards.png");
+    height: 214px;
+    width: 150px;
+    background-position-x: 0px;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    border: 1px rgb(15, 15, 15) solid;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px 1px #000;
+}
+
+.selectable-card:hover {
+    top: -30px;
+    box-shadow: 2px 2px 20px 1px #000;
+    cursor: pointer;
+}
+
+.selected-card {
+    top: -30px;
+    box-shadow: 2px 2px 20px 1px #000;
+    cursor: pointer;
+}
+
+.selected-card:hover {
+    top: -60px;
+}
+
+.winner_card {
+    box-shadow: 0px 0px 200px 5px blue;
+}
+
+.message_center {
+    color: #fff;
+    font-weight: bold;
+}
+
+h3 {
+    color: #fff;
+}
+
+h4 {
+    color: #fff;
+}
+
+hr {
+    color: #fff;
+}
+
+span.trump {
+    font-size: 70px;
+    padding-left: 50px;
+}
+
+span.red {
+    color: red;
+}
+
+span.black {
+    color: black;
+}
+
+.trump_suite:hover {
+    cursor: default;
+}
+
+.trump_suite_clickable:hover {
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+.chosenTrump {
+    border: 1px rgb(30, 30, 30) solid;
+    border-radius: 50px;
+    box-shadow: 2px 2px 15px 1px #000;
+    padding-left: 40px;
+}
