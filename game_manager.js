@@ -1,5 +1,7 @@
 function startGame() {
     endGame();
+    screen.disableStartButton();
+    screen.enableEndButton();
     this.context = new Context();
 
     // Deck setup
@@ -52,6 +54,10 @@ function defineOrder() {
 }
 
 function endGame() {
+    screen.enableStartButton();
+    screen.disableEndButton();
+    screen.disablePassCardButton();
+
     this.context = undefined;
     screen.clearCards("player_deck");
 
@@ -178,39 +184,39 @@ window.addEventListener("evt_card_played", e => {
     screen.displayCard(`play_card_${order + 1}`, playedCard);
 
     ///////////// delete here
-    let calculatedScore = [-2, 1, 1];
-    window.dispatchEvent(new CustomEvent("evt_start_new_round", { detail: { context: ctx, score: calculatedScore } }));
+    // let calculatedScore = [-2, 1, 1];
+    // window.dispatchEvent(new CustomEvent("evt_start_new_round", { detail: { context: ctx, score: calculatedScore } }));
 
     /// uncomment below - actual code
 
-    // if (hand.isHandDone()) {
-    //     let winner = hand.getWinner();
-    //     screen.showMessage("Hand winner: " + winner.player.getName() + " | card: " + winner.card.getName());
-    //     let round = ctx.getCurrentRound();
-    //     round.addHandWinner(winner);
+    if (hand.isHandDone()) {
+        let winner = hand.getWinner();
+        screen.showMessage("Hand winner: " + winner.player.getName() + " | card: " + winner.card.getName());
+        let round = ctx.getCurrentRound();
+        round.addHandWinner(winner);
 
-    //     screen.markWinnerCard(winner.order, winner.card.getName());
-    //     if (round.isDone()) {
-    //         let calculatedScore = ctx.getScore().calculateScore(round.order, round.getHandWinners());
-    //         ctx.getScore().addScore("p1", calculatedScore[0]);
-    //         ctx.getScore().addScore("p2", calculatedScore[1]);
-    //         ctx.getScore().addScore("p3", calculatedScore[2]);
+        screen.markWinnerCard(winner.order, winner.card.getName());
+        if (round.isDone()) {
+            let calculatedScore = ctx.getScore().calculateScore(round.order, round.getHandWinners());
+            ctx.getScore().addScore("p1", calculatedScore[0]);
+            ctx.getScore().addScore("p2", calculatedScore[1]);
+            ctx.getScore().addScore("p3", calculatedScore[2]);
 
-    //         screen.addScores(ctx.getScore().getScore());
+            screen.addScores(ctx.getScore().getScore());
 
-    //         if (ctx.getScore().isGameFinished()) {
-    //             window.dispatchEvent(new CustomEvent("evt_game_finished", { detail: { context: ctx } }));
-    //         } else {
-    //             window.dispatchEvent(new CustomEvent("evt_start_new_round", { detail: { context: ctx, score: calculatedScore } }));
-    //         }
-    //     } else {
-    //         window.dispatchEvent(new CustomEvent("evt_next_hand", { detail: { context: ctx, lastWinner: winner } }));
-    //     }
-    // } else {
-    //     // let the other players play
-    //     let currentPlayer = hand.getCurrentPlayer();
-    //     currentPlayer.playCard(hand.trump, hand.getPlayedCards(), ctx);
-    // }
+            if (ctx.getScore().isGameFinished()) {
+                window.dispatchEvent(new CustomEvent("evt_game_finished", { detail: { context: ctx } }));
+            } else {
+                window.dispatchEvent(new CustomEvent("evt_start_new_round", { detail: { context: ctx, score: calculatedScore } }));
+            }
+        } else {
+            window.dispatchEvent(new CustomEvent("evt_next_hand", { detail: { context: ctx, lastWinner: winner } }));
+        }
+    } else {
+        // let the other players play
+        let currentPlayer = hand.getCurrentPlayer();
+        currentPlayer.playCard(hand.trump, hand.getPlayedCards(), ctx);
+    }
 });
 
 window.addEventListener("evt_start_new_round", e => {

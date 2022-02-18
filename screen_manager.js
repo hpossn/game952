@@ -127,6 +127,18 @@ var screen = {
     disablePassCardButton: () => {
         document.getElementById("btnPassToPlayer").disabled = true;
     },
+    disableStartButton: () => {
+        document.getElementById("btnStartGame").disabled = true;
+    },
+    enableEndButton: () => {
+        document.getElementById("btnEndGame").disabled = false;
+    },
+    disableEndButton: () => {
+        document.getElementById("btnEndGame").disabled = true;
+    },
+    enableStartButton: () => {
+        document.getElementById("btnStartGame").disabled = false;
+    },
     enableDoneChoosingKittyButton: () => {
         document.getElementById("btnDoneChoosingKitty").disabled = false;
     },
